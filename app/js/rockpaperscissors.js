@@ -52,13 +52,42 @@ function getWinner(playerMove,computerMove) {
     } else return   'computer'; 
 }
 
-function playToFive() {
+function playTo() {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
-    var n = 0;
+    var maxWins = 5;
+    var turns = 0;
+        
+        while ((playerWins < maxWins) && (computerWins < maxWins)){  
+        
+            var playerMove = getPlayerMove();
+            var computerMove = getComputerMove();
+            var winner = getWinner(playerMove, computerMove);
+    
+            console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove);
+            console.log('the winner is ' + winner);
+    
+            if (winner == 'player'){
+            playerWins = playerWins + 1;
+            } 
+
+            else if (winner == 'computer'){
+            computerWins = computerWins + 1;
+            } 
+
+            else {
+            console.log('tied!');
+            }
+            turns++;
+            
+            console.log('currently player has ' + playerWins + ' wins vs computers ' + computerWins + ' from ' + turns + ' games');
+        }
     return [playerWins, computerWins];
 }
+
+//run getWinner add one to the number of games n, who won, add one to the number of wins for the winner
+
 
 //This code is looping through games keeping score until the first player gets to 5
 
@@ -98,30 +127,6 @@ function playToFive() {
     // After each 'round', display some text in the console indicating who played
     // what, who won, and what the current scoreboard looks like.
     // For example,
-
-
-
-
-    // i needs to be the console log above
-    /* function playerScore(num) {
-        var result;
-        for (var i = 0; i < 6; i += 1) {
-        if (i%3 === 0 && i%5 === 0) {
-        result = "fizzbuzz"
-        } else if (i%3 === 0) {
-        result = "fizz";
-        } else if(i%5 === 0) {
-        result = "buzz";
-        } else {
-        result = i;
-        }
-    //this loop gives me best of 5
-        console.log(result); // This is a command to our console, telling it to display the the winner
-}
-}
-
-
-    YOUR CODE HERE */
 
 
 
